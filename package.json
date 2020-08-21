@@ -1,0 +1,45 @@
+{
+    "name": "radix-tree",
+    "version": "0.0.1",
+    "description": "",
+    "main": "dist/index.js",
+    "scripts": {
+        "lint": "eslint",
+        "test": "nyc --silent ava --ext ts",
+        "tsc": "tsc",
+        "ts-node": "ts-node"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/fedotov/radix-tree.git"
+    },
+    "keywords": [
+        "radix-tree"
+    ],
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/fedotov/radix-tree/issues"
+    },
+    "homepage": "https://github.com/fedotov/radix-tree#readme",
+    "dependencies": {
+        "typescript": "^3.9.7"
+    },
+    "devDependencies": {
+        "@typescript-eslint/eslint-plugin": "^3.9.0",
+        "@typescript-eslint/parser": "^3.9.0",
+        "ava": "^3.11.1",
+        "eslint": "^7.7.0",
+        "eslint-config-airbnb-typescript": "^9.0.0",
+        "eslint-plugin-import": "^2.22.0",
+        "nyc": "^15.1.0",
+        "ts-node": "^8.10.2"
+    },
+    "ava": {
+        "files": [
+            "test/**/*",
+            "!node_modules/"
+        ],
+        "extensions": ["ts"]
+    }
+}
