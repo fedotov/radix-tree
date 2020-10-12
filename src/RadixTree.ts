@@ -1,6 +1,6 @@
 import BaseNode from './BaseNode';
 
-class RadixTree {
+export default class RadixTree {
     private roots: BaseNode[];
 
     constructor() {
@@ -8,10 +8,14 @@ class RadixTree {
     }
 
     public add(str: string, data: any) {
+        console.log('add', str, data);
+    }
+
+    find() {
 
     }
 
-    find()
+    print() {
 
-    print()
+    }
 }

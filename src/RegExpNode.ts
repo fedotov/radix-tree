@@ -1,4 +1,3 @@
-import * as assert from 'assert';
 import BaseNode from './BaseNode';
 
 export default class RegExpNode extends BaseNode {
@@ -12,10 +11,11 @@ export default class RegExpNode extends BaseNode {
     }
 
     static validate(substr: string) {
-        assert.ok(RegExpNode.regexParam.test(substr), 'RegExpNode constructor accetps only "{paramName}" strings');
+        if (!RegExpNode.regexParam.test(substr)) {
+            throw new Error('RegExpNode constructor accepts only "{paramName}" strings');
+        }
     }
 
-    // eslint-disable-next-line class-methods-use-this
     public match(substr: string) {
         return RegExpNode.matchClass(substr);
     }
