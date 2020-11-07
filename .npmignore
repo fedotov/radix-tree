@@ -1,0 +1,22 @@
+# Typescript
+*.ts
+*.js.map
+tsconfig.json
+
+# test
+*.spec.js
+.nycrc
+coverage/
+.nyc_output
+
+# logs
+newrelic_agent.log
+
+# IDE
+.vscode
+.idea
+*.orig
+.editorconfig
+.eslintrc*
+
+*.tgz
