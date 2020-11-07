@@ -16,3 +16,4 @@ rules:
     - error
     - 4
   class-methods-use-this: off
+  no-plusplus: off
