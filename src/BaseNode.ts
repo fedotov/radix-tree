@@ -11,19 +11,19 @@ export default class BaseNode {
         return substr.length;
     }
 
-    public match(substr: string) {
+    public match(substr: string): number {
         if (substr.startsWith(this.str)) {
             return this.str.length;
         }
         return 0;
     }
 
-    public addChild(childNode: BaseNode) {
+    public addChild(childNode: BaseNode): void {
         this.children = this.children || [];
         this.children.push(childNode);
     }
 
-    public isLeaf() {
+    public isLeaf(): boolean {
         return this.leaf;
     }
 
@@ -35,7 +35,7 @@ export default class BaseNode {
         return this.data;
     }
 
-    print(stream: { write: (str: string) => void }, offset: number) {
+    print(stream: { write: (str: string) => void }, offset: number): void {
         stream.write(this.str);
 
         const newOffset = offset + this.str.length + BaseNode.PATH_SIZE;

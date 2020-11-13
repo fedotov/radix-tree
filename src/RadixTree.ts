@@ -11,7 +11,7 @@ export default class RadixTree {
         console.log('add', str, data);
     }
 
-    public find(str: string) {
+    public find(str: string): BaseNode | null {
         const queue = [{ substr: str, children: this.root.getChildren(), index: -1 }];
 
         function next() {
@@ -20,7 +20,7 @@ export default class RadixTree {
             }
             let scope = queue[queue.length - 1];
             while (scope && (!scope.children || scope.index + 1 === scope.children.length)) {
-                queue.splice(queue.length - 1, 1);
+                queue.pop();
                 scope = queue[queue.length - 1];
             }
 
@@ -50,7 +50,7 @@ export default class RadixTree {
         return null;
     }
 
-    print(stream: { write: (str: string) => void }) {
+    print(stream: { write: (str: string) => void }): void {
         // remove offset for root node
         this.root.print(stream, -BaseNode.PATH_SIZE);
         stream.write('\n');
