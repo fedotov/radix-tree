@@ -1,6 +1,4 @@
 export default class BaseNode {
-    public static PATH_SIZE = 4;
-
     private children: BaseNode[] | null = null;
 
     constructor(private str: string, private leaf: boolean = false, private data: any = null) {
@@ -9,6 +7,10 @@ export default class BaseNode {
     // TODO: change the method name
     static matchClass(substr: string) {
         return substr.length;
+    }
+
+    public get value(): string {
+        return this.str;
     }
 
     public match(substr: string): number {
@@ -35,17 +37,16 @@ export default class BaseNode {
         return this.data;
     }
 
-    print(stream: { write: (str: string) => void }, offset: number): void {
+    print(stream: { write: (str: string) => void }, offset: string): void {
         stream.write(this.str);
 
-        const newOffset = offset + this.str.length + BaseNode.PATH_SIZE;
-        const prefix = `${' '.repeat(newOffset)}`;
+        const prefix = `${offset}${' '.repeat(this.str.length)}`;
         (this.children || []).forEach((child, index, children) => {
             if (index > 0) {
                 stream.write(prefix);
             }
             stream.write(BaseNode.getPathSign(index, children.length) + (child.leaf ? '￭' : ' '));
-            child.print(stream, newOffset);
+            child.print(stream, `${prefix} │  `);
 
             if (children.length !== index + 1) {
                 stream.write('\n');

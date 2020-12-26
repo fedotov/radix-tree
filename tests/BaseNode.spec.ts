@@ -41,7 +41,7 @@ describe('BaseNode', () => {
         const ab = new BaseNode('ab');
         const stream = { write: sinon.stub() };
 
-        ab.print(stream, 0);
+        ab.print(stream, '');
 
         expect(stream.write).have.been.calledOnceWith('ab');
     });
@@ -56,7 +56,7 @@ describe('BaseNode', () => {
         const buf: string[] = ['\n'];
         const stream = { write: sinon.stub().callsFake(buf.push.bind(buf)) };
 
-        ab.print(stream, -4);
+        ab.print(stream, '');
 
         expect(stream.write.callCount).to.equal(7);
         expect(buf.join('')).to.equal(`

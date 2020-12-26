@@ -63,15 +63,15 @@ describe('RadixTree', () => {
         radixTree.print(stream);
 
         expect(buf.join('')).to.equal(`
- ┬─ bbb ┬─￭ccc
-        └─￭ee
- ├─ cc ┬─ eee ┬─￭ggg
-              └─￭hhhh
-       ├─￭eee|ddd
-       ├─￭fff
-       ├─￭/^\\d\\d/
-       └─ /^\\d+/
- └─￭def ── jjj
+* ┬─ bbb ┬─￭ccc
+  │      └─￭ee
+  ├─ cc ┬─ eee ┬─￭ggg
+  │     │      └─￭hhhh
+  │     ├─￭eee|ddd
+  │     ├─￭fff
+  │     ├─￭/^\\d\\d/
+  │     └─ /^\\d+/
+  └─￭def ── jjj
 `);
     });
 

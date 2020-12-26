@@ -4,7 +4,7 @@ export default class RadixTree {
     readonly root: BaseNode;
 
     constructor() {
-        this.root = new BaseNode('');
+        this.root = new BaseNode('*');
     }
 
     public add(str: string, data: any) {
@@ -51,8 +51,7 @@ export default class RadixTree {
     }
 
     print(stream: { write: (str: string) => void }): void {
-        // remove offset for root node
-        this.root.print(stream, -BaseNode.PATH_SIZE);
+        this.root.print(stream, '');
         stream.write('\n');
     }
 }
