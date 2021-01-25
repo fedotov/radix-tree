@@ -1,17 +1,9 @@
-import { expect } from 'chai';
-import RegExpNode from '../src/RegExpNode';
+import NamedRegExpNode from '../src/NamedRegExpNode';
 
 describe('test', () => {
     it('a', () => {
-        // const p = new RegExpNode('{asdf}');
-        const res = RegExpNode.matchClass('{asdf}sadfsfnjfg');
+        const p = new NamedRegExpNode('{asdf}');
+        const res = p.match('12345-qwerty');
         console.log(res);
-    });
-
-    it('b', () => {
-        const t = new RegExpNode('{asdf}');
-
-        console.log('>>', t.match('asdf'));
-        expect(true).to.equal(true);
     });
 });
